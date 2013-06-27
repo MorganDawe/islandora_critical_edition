@@ -24,12 +24,6 @@
   background: #fff;
 }
 
-.admin-menu .islandora-crited-fullwindow
-{
-  top: 0px;
-}
-
-
 .islandora-crited-fullwindow .islandora-crited-iframe-wrapper
 {
   position: absolute;
@@ -44,10 +38,9 @@
   background: #fff;
 }
 
-.islandora-crited-fullwindow .islandora-crited-iframe-wrapper iframe
+.islandora-crited-fullwindow .islandora-crited-iframe-wrapper #iframe_replacement
 {
   position: absolute;
-  top: 0px;
   width: 100%;
   height: 100% !important;
 }
