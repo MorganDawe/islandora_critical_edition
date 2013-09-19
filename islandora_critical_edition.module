@@ -58,6 +58,8 @@ function islandora_critical_edition_menu() {
   return $items;
 }
 
+
+
 /**
  * Checks if the user has access to the CWRC editor for the given object.
  *
@@ -69,6 +71,7 @@ function islandora_critical_edition_menu() {
  *   FALSE if the user doesn't have access.
  */
 function islandora_critical_edition_cwrc_access(AbstractObject $object = NULL) {
+  $islandora_object = islandora_object_load($object);
   if (is_null($object)) {
     return FALSE;
   }
