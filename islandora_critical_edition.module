@@ -18,6 +18,12 @@ define('ISLANDORA_CRITICAL_EDITION_IS_CRITICAL_EDITION_OF', 'isCriticalEditionOf
  * Implements hook_menu().
  */
 function islandora_critical_edition_menu() {
+	$items['validator/index.html'] = array(
+			'page callback' => 'islandora_critical_edition_validator',
+			'type' => MENU_CALLBACK,
+			'access callback' => TRUE,
+			'file' => 'includes/manage.inc',
+	);
   $items['islandora/object/%islandora_object/critical_editions'] = array(
     'title' => 'Critical Editions',
     'page callback' => 'islandora_critical_edition_management',

@@ -5,6 +5,27 @@
  * Holds top level functionality for management of critical editions.
  */
 
+function islandora_critical_edition_validator() {
+  $query_parameters = drupal_get_query_parameters();
+  dsm($query_parameters);
+  $post_url = 'http://discoverygarden-vagrant-emic.local:8080/validator/index.html';
+  $response = drupal_http_request($post_url,array(
+    'headers'=>array(
+      'content-type'=>'application/xml',
+    ),
+    'data'=>'sch='.$query_parameters->sch .
+      '&type='.$query_parameters->type .
+      '&doc='.$query_parameters->doc,
+    'method'=>'POST',
+    )
+  );
+  drupal_add_http_header('content-type', $response->headers['content-type'], FALSE);
+  drupal_add_http_header('content-language', $response->headers['content-language'], FALSE);
+  drupal_add_http_header('Status', $response->code.' '.$response->status_message, FALSE);
+  dsm($response);
+   echo $response->data;
+   exit();
+}
 /**
  * Generates the tabs for managing the critical editions of an object.
  *
