@@ -100,7 +100,6 @@
 
           if (cwrc_params.position < cwrc_params.page_count) {
             $('#page-prev').css('opacity', '1').removeClass('disabled');
-            
             var selector = "#page_choose option[value='" + cwrc_params.position + "']";
             $(selector).removeAttr('selected');
             cwrc_params.position++;
