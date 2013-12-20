@@ -30,7 +30,6 @@ function islandora_critical_edition_preprocess_islandora_critical_edition(&$vari
 function islandora_critical_edition_add_js(&$variables, $media = FALSE) {
   global $base_url;
   global $user;
-
   module_load_include('inc', 'islandora_paged_content', 'includes/utilities');
   module_load_include('inc', 'islandora_critical_edition', 'includes/utilities');
   module_load_include('inc', 'islandora_image_annotation', 'includes/utils');
