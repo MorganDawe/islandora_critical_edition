@@ -528,7 +528,6 @@ function FileManager(config) {
 			w.deletedStructs = {};
 			
 			var offsets = [];
-			console.log(doc)
 			var docMode;
 			var rdfs = $(doc).find('rdf\\:RDF, RDF');
 
