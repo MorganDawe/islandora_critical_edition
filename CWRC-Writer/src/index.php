@@ -5,7 +5,7 @@
     	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
       <title>DHSI CWRICWriter</title>
-      
+
 		<script type="text/javascript" src="js/lib/jquery/jquery-1.8.3.js"></script>
 		<script type="text/javascript" src="js/lib/jquery/jquery-ui-1.9.0.custom.js"></script>
 		<script type="text/javascript" src="js/lib/jquery/jquery.layout-latest.min.js"></script>
@@ -13,10 +13,10 @@
 		<script type="text/javascript" src="js/lib/jquery/jquery.contextmenu.js"></script>
 		<script type="text/javascript" src="js/lib/jquery/jquery.tmpl.min.js"></script>
 		<script type="text/javascript" src="js/lib/jquery/jquery.watermark.min.js"></script>
-		
+
 		<script type="text/javascript" src="js/lib/tinymce/tiny_mce.js"></script>
 		<script type="text/javascript" src="js/lib/tinymce/copy_event.js"></script>
-		
+
 		<script type="text/javascript" src="js/lib/tinymce/jquery.tinymce.js"></script>
 		<script type="text/javascript" src="js/lib/jstree/jquery.hotkeys.js"></script>
 		<!-- can't use jquery.jtree.min.js due to modification -->
@@ -24,7 +24,7 @@
 		<script type="text/javascript" src="js/lib/snippet/jquery.snippet.min.js"></script>
 		<script type="text/javascript" src="js/lib/moment/moment.min.js"></script>
 		<script type="text/javascript" src="js/lib/objtree/ObjTree.js"></script>
-		
+
 		<script type="text/javascript" src="js/dialogs/dialog_addevent.js"></script>
 		<script type="text/javascript" src="js/dialogs/dialog_addorg.js"></script>
 		<script type="text/javascript" src="js/dialogs/dialog_addperson.js"></script>
@@ -91,13 +91,13 @@
       <script type="text/javascript">
 			window.addEventListener('beforeunload', function(e) {
 				if (this.tinymce.get('editor').isDirty()) {
-					var msg = 'You have unsaved changes.';
+					var msg = 'You have unsaved changes bra 1.';
 					(e || window.event).returnValue = msg;
 					return msg;
 				}
 			});
 		</script>
-		
+
       <!-- Canvas css -->
       <link rel="stylesheet" href="impl/css/sc.css" type="text/css" />
       <link rel="stylesheet" href="impl/css/emic_canvas.css" type="text/css" />

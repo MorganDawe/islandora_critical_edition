@@ -13,6 +13,7 @@
  * $variables['anno_list_pane']
  * $variables['anno_img_pane']
  * $variables['images_path']
+ * $variables['vanilla']
  */
 function islandora_critical_edition_preprocess_islandora_critical_edition(&$variables) {
   islandora_critical_edition_add_js($variables);
@@ -27,9 +28,11 @@ function islandora_critical_edition_preprocess_islandora_critical_edition(&$vari
  * @param array $variables
  *   Display variables
  */
-function islandora_critical_edition_add_js(&$variables, $media = FALSE) {
+function islandora_critical_edition_add_js(&$variables) {
   global $base_url;
   global $user;
+
+  //$is_vanilla = (isset($variables['vanilla']) ? $variables['vanilla'] : FALSE);
 
   module_load_include('inc', 'islandora_paged_content', 'includes/utilities');
   module_load_include('inc', 'islandora_critical_edition', 'includes/utilities');
@@ -38,6 +41,8 @@ function islandora_critical_edition_add_js(&$variables, $media = FALSE) {
   module_load_include('inc', 'php_lib', 'DOMHelpers');
   // Islandora Image Annotation base path, required module.
   $image_annotation_module_path = drupal_get_path('module', 'islandora_image_annotation');
+  $critical_edition_module_path = drupal_get_path('module', 'islandora_critical_edition');
+
   $pages = islandora_paged_content_get_pages($variables['islandora_object']);
   $pids = array_keys($pages);
   dom_document_pretty_print_include_files();
@@ -45,15 +50,13 @@ function islandora_critical_edition_add_js(&$variables, $media = FALSE) {
   $schema_object = islandora_critical_edition_construct_schema_config_object();
   drupal_add_js(array('islandora_critical_edition' => array('schema_object' => $schema_object)), 'setting');
   $schema_pref = islandora_critical_edition_get_user_selected_schema($user->name, $pids[0]);
+
   drupal_add_js(array('islandora_critical_edition' => array('schema_pref' => $schema_pref)), 'setting');
-
-  // Local Critical Editions module path.
-  $critical_edition_module_path = drupal_get_path('module', 'islandora_critical_edition');
-
   // Get the schema for the first page.
-  drupal_add_js(array(
-    'islandora_critical_edition' => array(
-      'page_schema' => islandora_critical_edition_get_user_selected_schema($user->name, $pids[0]))), 'setting');
+  drupal_add_js(array('islandora_critical_edition' => array('page_schema' => $schema_pref)), 'setting');
+  drupal_add_js(array('islandora_critical_edition' => array('page_setup' => "islandora/cwrcwriter/setup/")), 'setting');
+
+
 
   $validate_path = variable_get('islandora_critical_edition_validate_url', '/validator/validate.html');
   // Use the theme files from image annotation for annotation list
@@ -81,9 +84,7 @@ function islandora_critical_edition_add_js(&$variables, $media = FALSE) {
       'validate_path' => $validate_path)), 'setting');
   // Passing the page pid, instead of getting if from the
   // URL on the javascript side.
-  drupal_add_js(array(
-    'islandora_critical_edition' => array(
-      'page_pid' => $pids[0])), 'setting');
+  drupal_add_js(array('islandora_critical_edition' => array('page_pid' => $pids[0])), 'setting');
 
   // To avoid hard coded values in js, this is the best option.
   drupal_add_js(array(

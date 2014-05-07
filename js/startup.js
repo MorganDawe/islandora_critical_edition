@@ -2,6 +2,9 @@ $('document').ready(function() {
 
     // Functionality is wrapped up in 'writer_wrapper.js.
     islandoraCWRCWriter.init_writer();
+    window.removeEventListener("beforeunload");
+    console.log("removed before unload");
+    tinymce.get('editor').isNotDirty = true;
   });
 
   function init_ui() {

@@ -177,8 +177,8 @@ function islandora_critical_edition_construct_schema_config_object() {
 
     $config_sample['schemas'][$all_titles[0]] = array(
       "name" => $all_titles[0],
-      "url" => url("islandora/object/$schema_pid/datastream/RDF-SCHEMA/view/$rdf_datastream->label"),
-      "cssUrl" => url("islandora/object/$schema_pid/datastream/RDF-CSS/view/$css_datastream->label"),
+      "url" => url("islandora/object/$schema_pid/datastream/RDF-SCHEMA/view/$rdf_datastream->label/schema.rng"),
+      "cssUrl" => url("islandora/object/$schema_pid/datastream/RDF-CSS/view/$css_datastream->label/schema_style.css"),
       "pid" => $schema_pid,
     );
   }

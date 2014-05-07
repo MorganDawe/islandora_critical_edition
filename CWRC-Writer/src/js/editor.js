@@ -738,12 +738,14 @@ function Writer(config) {
 		});
 		
 		window.addEventListener('beforeunload', function(e) {
+			console.log(tinymce.get('editor'));
 			if (tinymce.get('editor').isDirty()) {
-				var msg = 'You have unsaved changes.';
+				var msg = 'You have unsaved changes bra 2 in editor.';
 				(e || window.event).returnValue = msg;
 				return msg;
 			}
 		});
+		console.log("added before unload");
 		
 		$(window).unload(function(e) {
 			// clear the editor first (large docs can cause the browser to freeze)

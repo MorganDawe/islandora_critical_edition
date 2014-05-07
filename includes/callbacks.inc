@@ -43,6 +43,7 @@ function islandora_critical_edition_schema_work(AbstractObject $islandora_object
   // Set it to the currently selected schema.
   islandora_critical_edition_add_user_selected_schema($user->name, $islandora_object->id, $schema_object->id, $valid);
 }
+
 /**
  * Provides all the parameters necessary for CWRCWriter to operate with Fedora.
  *
@@ -84,6 +85,7 @@ function islandora_critical_edition_setup(AbstractObject $fedora_object) {
   $person_entity_collection = variable_get('islandora_entities_people_collection', 'islandora:entity_collection');
   $results['create_entity_callbacks']['people'] = url('islandora/object/' . $person_entity_collection . '/manage/overview/ingest');
 
+  dsm($results);
   drupal_json_output($results);
 }
 
