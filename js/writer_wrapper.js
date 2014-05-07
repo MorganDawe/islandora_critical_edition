@@ -18,14 +18,12 @@ var islandoraCWRCWriter = {
       cwrcRootUrl: islandoraCriticalEditionsUrl + '/CWRC-Writer/src/',
       schemas: Drupal.settings.islandora_critical_edition.schema_object['schemas']
     };
-    console.log(Drupal.settings.basePath + Drupal.settings.islandora_critical_edition.page_setup + PID);
     $.ajax({
       url: Drupal.settings.basePath + Drupal.settings.islandora_critical_edition.page_setup + PID,
       timeout: 3000,
       async: false,
       dataType: 'json',
       success: function(data, status, xhr) {
-    	  console.log(data);
         cwrc_params = data;
         config.project = data;
         writer = new Writer(config);
@@ -46,7 +44,6 @@ var islandoraCWRCWriter = {
         if (typeof Drupal.settings.islandora_critical_edition.source_type != 'string') {
           islandoraCWRCWriter.Writer.setup_canvas(PID, init_canvas_div);
         }
-        //writer.editor.get('editor').isNotDirty = true;
       },
       error: function() {
         console.log("Error");

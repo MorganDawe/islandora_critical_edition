@@ -91,7 +91,7 @@
       <script type="text/javascript">
 			window.addEventListener('beforeunload', function(e) {
 				if (this.tinymce.get('editor').isDirty()) {
-					var msg = 'You have unsaved changes bra 1.';
+					var msg = 'You have unsaved changes.';
 					(e || window.event).returnValue = msg;
 					return msg;
 				}

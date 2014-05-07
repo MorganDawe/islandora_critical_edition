@@ -85,7 +85,6 @@ function islandora_critical_edition_setup(AbstractObject $fedora_object) {
   $person_entity_collection = variable_get('islandora_entities_people_collection', 'islandora:entity_collection');
   $results['create_entity_callbacks']['people'] = url('islandora/object/' . $person_entity_collection . '/manage/overview/ingest');
 
-  dsm($results);
   drupal_json_output($results);
 }
 

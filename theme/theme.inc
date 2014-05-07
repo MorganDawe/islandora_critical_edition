@@ -13,7 +13,6 @@
  * $variables['anno_list_pane']
  * $variables['anno_img_pane']
  * $variables['images_path']
- * $variables['vanilla']
  */
 function islandora_critical_edition_preprocess_islandora_critical_edition(&$variables) {
   islandora_critical_edition_add_js($variables);
@@ -31,8 +30,6 @@ function islandora_critical_edition_preprocess_islandora_critical_edition(&$vari
 function islandora_critical_edition_add_js(&$variables) {
   global $base_url;
   global $user;
-
-  //$is_vanilla = (isset($variables['vanilla']) ? $variables['vanilla'] : FALSE);
 
   module_load_include('inc', 'islandora_paged_content', 'includes/utilities');
   module_load_include('inc', 'islandora_critical_edition', 'includes/utilities');
@@ -55,8 +52,6 @@ function islandora_critical_edition_add_js(&$variables) {
   // Get the schema for the first page.
   drupal_add_js(array('islandora_critical_edition' => array('page_schema' => $schema_pref)), 'setting');
   drupal_add_js(array('islandora_critical_edition' => array('page_setup' => "islandora/cwrcwriter/setup/")), 'setting');
-
-
 
   $validate_path = variable_get('islandora_critical_edition_validate_url', '/validator/validate.html');
   // Use the theme files from image annotation for annotation list
