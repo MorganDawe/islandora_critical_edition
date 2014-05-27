@@ -4,7 +4,7 @@ Current build status:
 [![Build Status](https://travis-ci.org/discoverygarden/islandora_critical_edition.png?branch=7.x)](https://travis-ci.org/discoverygarden/islandora_critical_edition)
 
 
-CONTENTS OF THIS FILE
+CONTENTS OF FILE
 ---------------------
 
  * summary
