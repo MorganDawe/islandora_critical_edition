@@ -74,6 +74,7 @@ function islandora_critical_edition_add_js(&$variables, $media = FALSE) {
   $image_annotation_module_path = drupal_get_path('module', 'islandora_image_annotation');
 
   $islandora_markup_editor_module_path = drupal_get_path('module', 'islandora_markup_editor');
+  dsm($variables['islandora_object']->id, "obj id");
   $pages = islandora_paged_content_get_pages($variables['islandora_object']);
   $pids = array_keys($pages);
 
